@@ -11,4 +11,3 @@ INSERT INTO `regis`.`worker` (`Workerid`, `First_name`, `Last_name`, `Salary`, `
 INSERT INTO `regis`.`worker` (`Workerid`, `First_name`, `Last_name`, `Salary`, `Joining_date`, `Department`) VALUES ('15', 'Rahul', 'Mandal', '15400', '2014-01-20 09:00:00', 'CS');
 INSERT INTO `regis`.`worker` (`Workerid`, `First_name`, `Last_name`, `Salary`, `Joining_date`, `Department`) VALUES ('16', 'Shamal', 'Samanta', '25400', '2014-01-20 09:00:00', 'Employe');
 INSERT INTO `regis`.`worker` (`Workerid`, `First_name`, `Last_name`, `Salary`, `Joining_date`, `Department`) VALUES ('17', 'Kartik', 'kk', '54050', '2014-01-20 09:00:00', 'Admin');
-INSERT INTO `regis`.`worker` (`Workerid`, `First_name`, `Last_name`, `Salary`, `Joining_date`, `Department`) VALUES ('18', 'Sambu', 'Pal', '54200', '2014-01-20 09:00:00', 'HR');
