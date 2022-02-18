@@ -1,7 +1,7 @@
 
 	import java.util.Scanner;
 
-	public class A{ 
+	public class A1{ 
 		int size,i;
 		
 		public int[] accept()
