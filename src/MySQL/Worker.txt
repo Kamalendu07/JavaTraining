@@ -1,4 +1,0 @@
-use regis;
-desc worker;
-SELECT * FROM regis.worker;
-INSERT INTO `regis`.`worker` (`Workerid`, `First_name`, `Last_name`, `Salary`, `Joining_date`, `Department`) VALUES ('20', 'Rahul', 'Mandal', '54090', '2014-01-20 09:00:00', 'Admin');
