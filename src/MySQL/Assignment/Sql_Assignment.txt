@@ -1,0 +1,221 @@
+Kamalendu Singha Sarkar
+
+
+Sample Table → Employee
+
+
+EMPLOYEE_ID FIRST_NAME LAST_NAME SALARY JOINING_DATE DEPARTMENT
+
+SQL Script to Seed Sample Data.
+==================== CREATE DATABASE ORG; SHOW DATABASES;
+USE ORG;
+
+create table Employee(EMPLOYEE_ID   int primary key, FIRST_NAME varchar(20), LAST_NAME varchar(20), SALARY varchar(30), JOINING_DATE datetime, DEPARTMENT varchar(20));
+create table title(EMPLOYEE_REF_ID int , EMPLOYEE_TITLE  varchar(20), AFFECTED_FROM datetime);
+create table Bonus(EMPLOYEE_REF_ID int, BONUS_DATE datetime, BONUS_AMOUNT varchar(30));
+insert into Employee values(002, 'Niharika', 'Verma', 80000, '11-06-14 09.00.00', 'Admin');
+insert into Employee values(003,' Vishal',' Singhal', 300000 ,'14-02-20 09.00.00',' HR');
+insert into Employee values
+		(004, 'Amitabh', 'Singh', 500000, '14-02-20 09.00.00', 'Admin'),
+		(005, 'Vivek', 'Bhati', 500000, '14-06-11 09.00.00', 'Admin'),
+		(006, 'Vipul', 'Diwan', 200000, '14-06-11 09.00.00', 'Account'),
+		(007, 'Satish', 'Kumar', 75000, '14-01-20 09.00.00', 'Account'),
+		(008, 'Geetika', 'Chauhan', 90000, '14-04-11 09.00.00', 'Admin');
+insert into Bonus values
+(3,'2016-02-20 00:00:00',' 4000'),
+(1,' 2016-02-20 00:00:00',' 4500'),
+(2,' 2016-06-11 00:00:00', '3500');
+insert into  title values(3	                  ,'Lead',	     '2016-06-11 00:00:00');
+
+Once above SQL would run, you’ll see a result similar to the one attached below.
+
+Q-1. Write an SQL query to fetch “FIRST_NAME” from
+Employee table using the alias name as
+<EMPLOYEE_NAME>.
+Ans. select FIRST_NAME  as Employee from Employee;
+
+
+Q-2. Write an SQL query to fetch “FIRST_NAME” from
+EMPLOYEE table in upper case. Ans.
+
+Select upper(FIRST_NAME)from employee;
+
+
+Q-3. Write an SQL query to fetch unique values of DEPARTMENT from EMPLOYEE table.
+Ans.
+
+The required query is: select distinct department from employee;
+
+
+
+Q-4. Write an SQL query to print the first three characters of FIRST_NAME from EMPLOYEE table.
+Ans.
+
+The required query is: select SUBSTRING(FIRST_NAME,1,3) from employee;
+
+Q-5. Write an SQL query to find the position of the
+alphabet (‘a’) in the first name column ‘Amitabh’ from
+EMPLOYEE table. Ans. 
+
+The required query is: 
+Select INSTR(FIRST_NAME, BINARY'a')
+from employee where FIRST_NAME = 'Amitabh’
+
+
+Q-6. Write an SQL query to print the FIRST_NAME from EMPLOYEE table after removing white spaces from the right side. 
+ 
+Ans.
+
+The required query is: Select RTRIM(FIRST_NAME) from employee;
+
+
+
+Q-7. Write an SQL query to print the DEPARTMENT from EMPLOYEE table after removing white spaces from the left side.
+Ans.
+
+The required query is: Select LTRIM(DEPARTMENT) from employee;
+
+
+Q-8. Write an SQL query that fetches the unique values of DEPARTMENT from EMPLOYEE table and prints its length.
+Ans.
+
+The required query is: select distinct( length(department)) from employee;
+
+Q-9. Write an SQL query to print the FIRST_NAME from
+EMPLOYEE table after replacing ‘a’ with ‘A’.
+Ans.
+
+The required query is: select replace(FIRST_NAME,'a','A') from employee;
+
+
+Q-10. Write an SQL query to print the FIRST_NAME and LAST_NAME from EMPLOYEE table into a single column
+ 
+COMPLETE_NAME. A space char should separate them. Ans.
+
+The required query is: Select CONCAT(FIRST_NAME, ' ', LAST_NAME) AS
+'COMPLETE_NAME' from employee;
+ 
+
+
+
+
+Q-11. Write an SQL query to print all EMPLOYEE details from the EMPLOYEE table order by FIRST_NAME Ascending.
+Ans.
+
+The required query is:
+select* from employee order by FIRST_NAME ;
+
+
+Q-12. Write an SQL query to print all EMPLOYEE details from the EMPLOYEE table order by FIRST_NAME Ascending and DEPARTMENT Descending.
+Ans.
+
+The required query is: select * from Employee order by FIRST_NAME asc , DEPARTMENT desc;
+
+
+Q-13. Write an SQL query to print details for EMPLOYEEs with the first name as “Vipul” and “Satish” from EMPLOYEE table.
+Ans.
+
+The required query is: select * from Employee where FIRST_NAME in('vipul' ,'satish');
+Q-14. Write an SQL query to print details of EMPLOYEEs excluding first names, “Vipul” and “Satish” from EMPLOYEE table.
+Ans.
+
+The required query is: select * from Employee where  FIRST_NAME not in('vipul','satish');
+
+
+
+Q-15. Write an SQL query to print details of EMPLOYEEs
+with DEPARTMENT name as “Admin”.
+Ans.
+
+The required query is: select * from Employee where DEPARTMENT ='Admin';
+
+
+Q-16. Write an SQL query to print details of the EMPLOYEEs whose FIRST_NAME contains ‘a’. Ans.
+
+The required query is: select * from Employee where FIRST_NAME  like 'a%';
+
+
+Q-17. Write an SQL query to print details of the EMPLOYEEs whose FIRST_NAME ends with ‘a’. Ans.
+
+The required query is:
+select * from Employee where FIRST_NAME like '%a'; 
+Q-18. Write an SQL query to print details of the EMPLOYEEs whose FIRST_NAME ends with ‘h’ and contains six alphabets.
+Ans.
+
+The required query is:
+select * from Employee where FIRST_NAME  like'	h ';
+
+Q-19. Write an SQL query to print details of the EMPLOYEEs whose SALARY lies between 100000 and 500000.
+Ans.
+
+The required query is: select * from Employee where  salary Between   100000 And  500000;
+
+
+Q-20. Write an SQL query to print details of the
+EMPLOYEEs who have joined in Feb’2014.
+Ans.
+
+The required query is: select * from Employee where year(JOINING_DATE)=2014 AND month(JOINING_DATE)=2 ;
+
+
+Q-21. Write an SQL query to fetch the count of employees
+working in the department ‘Admin’.
+Ans.
+
+The required query is: select count(DEPARTMENT) from employee where DEPARTMENT ='Admin';
+
+select count(DEPARTMENT) from employee where DEPARTMENT IN('Admin'); 
+
+Q-22. Write an SQL query to fetch EMPLOYEE names with salaries >= 50000 and <= 100000.
+Ans.
+
+The required query is: 
+
+SELECT CONCAT(FIRST_NAME, ' ', LAST_NAME) As employee_Name, Salary from employee WHERE Salary BETWEEN 50000 AND 100000;
+
+
+
+Q-23. Write an SQL query to fetch the no. of EMPLOYEEs for each department in the descending order.
+Ans.
+
+The required query is: select DEPARTMENT, count(employee_ID) No_Of_employee from employee GROUP BY DEPARTMENT ORDER BY No_Of_employee desc;
+
+
+Q-24. Write an SQL query to print details of the EMPLOYEEs who are also Managers.
+Ans.
+
+The required query is: select FIRST_NAME,employee_title from employee inner join title on employee_ id = employee _ref_ id and employee title in(‘Manager’)
+
+
+Q-25. Write an SQL query to fetch duplicate records having matching data in some fields of a table.
+Ans.
+
+The required query is: SELECT SALARY,count(*) from employee group by SALARY having count(*)>1;
+
+
+
+
+
+Q-27. Write an SQL query to show only even rows from a table.
+Ans.
+
+The required query is: Select * from Employee where EMPLOYEE_id % 2 = 0
+
+
+Q-28. Write an SQL query to show the current date and time.
+Ans. select now(); 
+
+Q-29. Write an SQL query to show the top n (say 10) records of a table.
+Ans. select* from employee order by salary desc limit 10;
+
+
+
+
+
+
+Q-30. Write an SQL query to fetch three max salaries from a table.
+Ans.
+
+The required query is: select* from employee order by salary desc limit 3;
+
+
