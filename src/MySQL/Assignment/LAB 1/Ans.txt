@@ -1,0 +1,83 @@
+mysql> use kamalendu;
+Database changed
+mysql> SELECT * FROM kamalendu.customer;
++---------+---------+----------+------+---------+---------------------+---------+
+| Cust_id | F_name  | L_name   | Area | Phone   | DOB                 | Payment |
++---------+---------+----------+------+---------+---------------------+---------+
+| A01     | Ivan    | Ross     | SA   | 6125467 | 1986-01-15 00:00:00 |  800.50 |
+| A02     | Vandana | Ray      | MU   |  123456 | 1987-12-20 00:00:00 | 1000.75 |
+| A03     | Pamada  | Jauguste | DA   | 4560389 | 1987-07-25 00:00:00 |  500.00 |
+| A04     | Basu    | Navindi  | BA   | 6125401 | 1956-02-29 00:00:00 |  860.00 |
+| A05     | Ravi    | Shridhar | NA   |    NULL | 1989-02-15 00:00:00 |  500.50 |
+| A06     | Rukmini | Aiyer    | GH   | 5125174 | 1987-07-23 00:00:00 | 1500.50 |
++---------+---------+----------+------+---------+---------------------+---------+
+mysql> select sysdate();
++---------------------+
+| sysdate()           |
++---------------------+
+| 2022-03-12 21:48:41 |
++---------------------+
+1 row in set (0.00 sec)
+mysql> update customer set Phone='123456' where Cust_id='A02';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+mysql> update customer set phone='654321' where Cust_id='A04';
+Query OK, 1 row affected (0.19 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+mysql> SELECT * FROM kamalendu.customer;
++---------+---------+----------+------+---------+---------------------+---------+
+| Cust_id | F_name  | L_name   | Area | Phone   | DOB                 | Payment |
++---------+---------+----------+------+---------+---------------------+---------+
+| A01     | Ivan    | Ross     | SA   | 6125467 | 1986-01-15 00:00:00 |  800.50 |
+| A02     | Vandana | Ray      | MU   |  123456 | 1987-12-20 00:00:00 | 1000.75 |
+| A03     | Pamada  | Jauguste | DA   | 4560389 | 1997-01-24 00:00:00 |  500.00 |
+| A04     | Basu    | Navindi  | BA   |  654321 | 1956-02-29 00:00:00 |  860.00 |
+| A05     | Ravi    | Shridhar | NA   |    NULL | 1997-11-23 00:00:00 |  500.50 |
+| A06     | Rukmini | Aiyer    | GH   | 5125174 | 1987-07-23 00:00:00 | 1500.50 |
++---------+---------+----------+------+---------+---------------------+---------+
+6 rows in set (0.00 sec)
+mysql> delete from customer where Cust_id='A01' ;
+Query OK, 1 row affected (0.24 sec)
+
+mysql> delete from customer where Cust_id='A05' ;
+Query OK, 1 row affected (0.31 sec)
+
+mysql> TRUNCATE TABLE customer;
+Query OK, 0 rows affected (1.92 sec)
+
+mysql> select * from customer;
+Empty set (0.14 sec)
+
+mysql> insert into customer values('A01','Ivan','Ross','SA','6125467','1986-01-15',800.50);
+Query OK, 1 row affected (0.19 sec)
+
+mysql> insert into customer values('A02','Vandana','Ray','MU','5560379','1987-12-20',1000.75);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into customer values('A03','Pramada','Jauguste','DA','4560389','1967-06-25',500.00);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into customer values('A04','Basu','Navindi','BA','6125401','1956-02-29',860.00);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into customer values('A05','Ravi','Shridhar','NA','null','1989-02-15',500.50);
+ERROR 1366 (HY000): Incorrect integer value: 'null' for column 'Phone' at row 1
+mysql> update customer set Area='CoochBehar' where Cust_id='A05';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> delete from customer  where Cust_id='A05';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from customer;
++---------+---------+----------+------+---------+---------------------+---------+
+| Cust_id | F_name  | L_name   | Area | Phone   | DOB                 | Payment |
++---------+---------+----------+------+---------+---------------------+---------+
+| A01     | Ivan    | Ross     | SA   | 6125467 | 1986-01-15 00:00:00 |  800.50 |
+| A02     | Vandana | Ray      | MU   | 5560379 | 1987-12-20 00:00:00 | 1000.75 |
+| A03     | Pramada | Jauguste | DA   | 4560389 | 1967-06-25 00:00:00 |  500.00 |
+| A04     | Basu    | Navindi  | BA   | 6125401 | 1956-02-29 00:00:00 |  860.00 |
++---------+---------+----------+------+---------+---------------------+---------+
+4 rows in set (0.00 sec)
+
+mysql>
